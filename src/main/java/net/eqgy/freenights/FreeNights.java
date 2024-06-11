@@ -1,6 +1,14 @@
 package net.eqgy.freenights;
 
 import com.mojang.logging.LogUtils;
+import net.eqgy.freenights.block.ModBlocks;
+import net.eqgy.freenights.entity.ModEntities;
+import net.eqgy.freenights.entity.client.FardieMonsterRenderer;
+import net.eqgy.freenights.item.ModItems;
+import net.eqgy.freenights.sound.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,9 +32,16 @@ public class FreeNights
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+
+
     public FreeNights()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -43,6 +58,13 @@ public class FreeNights
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey()== CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.RACKET);
+            event.accept(ModItems.FARDIE_MONSTER_SPAWN_EGG);
+        }
+        if(event.getTabKey()== CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.FARDIE_WARD);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -58,7 +80,7 @@ public class FreeNights
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntities.FARDIEMONSTER.get(), FardieMonsterRenderer::new);
         }
     }
 }

@@ -1,0 +1,31 @@
+{
+
+  "fardie_ambient": {
+    "subtitle": "subtitles.freenights.fardie_ambient",
+    "sounds": [
+      "freenights:fardie_ambient"
+    ]
+  },
+
+  "fardie_death": {
+    "subtitle": "subtitles.freenights.fardie_death",
+    "sounds": [
+      "freenights:fardie_death"
+    ]
+  },
+
+  "fardie_hurt": {
+    "subtitle": "subtitles.freenights.fardie_hurt",
+    "sounds": [
+      "freenights:fardie_hurt"
+    ]
+  },
+
+  "fardie_attack": {
+    "subtitle": "subtitles.freenights.fardie_attack",
+    "sounds": [
+      "freenights:fardie_attack"
+    ]
+  }
+
+}

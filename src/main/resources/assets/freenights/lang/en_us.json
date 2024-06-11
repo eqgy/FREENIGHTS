@@ -1,0 +1,11 @@
+{
+  "item.freenights.racket": "Racket",
+  "item.freenights.fardie_monster_spawn_egg": "Fardie Spawn Egg",
+
+  "block.freenights.fardie_ward": "Fardie Ward",
+  "sounds.freenights.fardie_attack": "Fardie Attack",
+  "sounds.freenights.fardie_hurt": "Fardie Hurt",
+  "sounds.freenights.fardie_death": "Fardie Death",
+  "sounds.freenights.fardie_ambient": "Fardie Ambient"
+
+}
